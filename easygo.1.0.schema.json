@@ -1,0 +1,227 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema",
+    "$id": "https://hellotool.github.io/easygo-schema/easygo.1.0.schema.json",
+    "title": "平行视界",
+    "description": "华为平行视界 easygo.json 配置文件",
+    "type": "object",
+    "properties": {
+        "easyGoVersion": {
+            "description": "协议版本",
+            "enum": [
+                "1.0"
+            ]
+        },
+        "client": {
+            "description": "应用包名",
+            "type": "string"
+        },
+        "logicEntities": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "head": {
+                        "type": "object",
+                        "properties": {
+                            "function": {
+                                "description": "调用组件名",
+                                "enum": [
+                                    "magicwindow"
+                                ]
+                            },
+                            "required": {
+                                "description": "预留字段",
+                                "enum": [
+                                    "true"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "function",
+                            "required"
+                        ]
+                    },
+                    "body": {
+                        "type": "object",
+                        "properties": {
+                            "mode": {
+                                "description": "基础分屏模式\n0：购物模式，activityPairs 节点不生效\n1：自定义模式（包括导航栏模式）",
+                                "enum": [
+                                    "0",
+                                    "1"
+                                ]
+                            },
+                            "activityPairs": {
+                                "description": "自定义模式参数，配置从 from 页面到 to 页面的分屏展示",
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "from": {
+                                            "description": "触发分屏的源 Activity",
+                                            "type": "string"
+                                        },
+                                        "to": {
+                                            "description": "触发分屏的目标 Activity，“*”表示任意 Activity",
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "examples": [
+                                    [
+                                        {
+                                            "from": "com.xxx.ActivityA",
+                                            "to": "com.xxx.ActivityB"
+                                        }
+                                    ],
+                                    [
+                                        {
+                                            "from": "com.xxx.ActivityA",
+                                            "to": "*"
+                                        }
+                                    ]
+                                ]
+                            },
+                            "defaultDualActivities": {
+                                "description": "应用冷启动默认打开首页双屏配置",
+                                "type": "array",
+                                "items": {
+                                    "mainPages": {
+                                        "description": "主页面 Activity，可以有多个，分号隔开\n展开态时冷启动应用打开此页面时，系统在右屏自动启动 relatedPage 页面",
+                                        "type": "string"
+                                    },
+                                    "relatedPage": {
+                                        "description": "右屏默认展示页面 Activity\nmainPages 和 relatedPage 只能配置 1 对，需要具体的 Activity 名，不支持通配符",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "mainPages"
+                                ],
+                                "examples": [
+                                    [
+                                        {
+                                            "mainPages": "com.xxx.MainActivity",
+                                            "relatedPage": "com.xxx.EmptyActivity"
+                                        }
+                                    ]
+                                ]
+                            },
+                            "transActivities": {
+                                "description": "过渡页面列表",
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "Activities": {
+                                "description": "应用关键 Activity 属性列表",
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "description": "Activity 组件名",
+                                            "type": "string"
+                                        },
+                                        "defaultFullScreen": {
+                                            "description": "Activity 是否支持默认以全屏启动\n默认为 false",
+                                            "default": "false",
+                                            "enum": [
+                                                "true",
+                                                "false"
+                                            ]
+                                        },
+                                        "lockSide": {
+                                            "description": "Activity 锁定方式，当前仅支持锁定在 primary 侧\nprimary：锁定在主界面那一侧，锁定后，另一侧启动新的 Activity 时不会轻易平推窗口过来，除非推过来的窗口也是 primary 锁定窗口(典型场景：直播购物场景，将直播 Activity 配置成锁定)。",
+                                            "default": "primary",
+                                            "enum": [
+                                                "primary"
+                                            ]
+                                        },
+                                        "isSupportDraggingToFreeform": {
+                                            "description": "当前 Activity 是否支持拖出到悬浮窗，当 logicEntities.body.UX.draggingToFreeForm 配置为 window 时生效。\n默认为 false",
+                                            "enum": [
+                                                "true",
+                                                "false"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "name"
+                                    ]
+                                }
+                            },
+                            "UX": {
+                                "description": "页面 UX 控制配置",
+                                "type": "object",
+                                "properties": {
+                                    "supportRotationUxCompat": {
+                                        "description": "是否开启窗口缩放，用于提高转屏应用 UX 显示兼容性\n默认为 false，仅针对平板产品生效",
+                                        "enum": [
+                                            "true",
+                                            "false"
+                                        ],
+                                        "default": "false"
+                                    },
+                                    "isDraggable": {
+                                        "description": "是否支持分屏窗口拖动\n默认为 false，仅针对平板产品生效",
+                                        "enum": [
+                                            "true",
+                                            "false"
+                                        ],
+                                        "default": "false"
+                                    },
+                                    "supportVideoFullscreen": {
+                                        "description": "是否支持视频全屏\n默认为 true，仅针对平板产品生效",
+                                        "enum": [
+                                            "true",
+                                            "false"
+                                        ],
+                                        "default": "true"
+                                    },
+                                    "supportDraggingToFullScreen": {
+                                        "description": "是否支持在分屏和全屏之间拖动切换\n如果支持多个产品，可以用|进行分割，例如想在折叠屏和平板上同时支持，则配置为\"PAD|FOLD\"",
+                                        "enum": [
+                                            "ALL",
+                                            "PAD",
+                                            "FOLD"
+                                        ]
+                                    },
+                                    "supportLock": {
+                                        "description": "是否支持应用内用户锁定功能，配置为 true 后，双窗口显示状态会显示锁定按钮，用户点击后可以进行锁定和解锁操作，锁定后，左右窗口不再关联，即左侧打开新窗口在左侧显示，右侧打开新窗口在右侧显示。\n默认为 false",
+                                        "enum": [
+                                            "true",
+                                            "false"
+                                        ],
+                                        "default": "false"
+                                    },
+                                    "draggingToFreeForm": {
+                                        "description": "是否支持应用内 Activity 拖出到悬浮窗。\napp：应用内所有Activity均支持拖出到悬浮窗\nwindow：只有在 logicEntities.body.Activities 中配置了 isSupportDraggingToFreeform为true的Activity 才支持拖出到悬浮窗\noff: 关闭应用的拖出到悬浮窗功能",
+                                        "enum": [
+                                            "app",
+                                            "window",
+                                            "off"
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "required": [
+                            "mode"
+                        ]
+                    }
+                },
+                "required": [
+                    "head",
+                    "body"
+                ]
+            }
+        }
+    },
+    "required": [
+        "easyGoVersion",
+        "client",
+        "logicEntities"
+    ]
+}
