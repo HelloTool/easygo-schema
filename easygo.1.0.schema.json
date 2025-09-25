@@ -181,7 +181,7 @@
                                         "default": "true"
                                     },
                                     "supportDraggingToFullScreen": {
-                                        "description": "是否支持在分屏和全屏之间拖动切换\n如果支持多个产品，可以用|进行分割，例如想在折叠屏和平板上同时支持，则配置为\"PAD|FOLD\"",
+                                        "description": "是否支持在分屏和全屏之间拖动切换\nALL：所有设备上支持此功能\nPAD: 仅平板产品上支持此功能\nFOLD: 仅折叠屏上支持此功能\n如果支持多个产品，可以用 | 进行分割，例如想在折叠屏和平板上同时支持，则配置为 \"PAD|FOLD\"",
                                         "enum": [
                                             "ALL",
                                             "PAD",
@@ -197,7 +197,7 @@
                                         "default": "false"
                                     },
                                     "draggingToFreeForm": {
-                                        "description": "是否支持应用内 Activity 拖出到悬浮窗。\napp：应用内所有Activity均支持拖出到悬浮窗\nwindow：只有在 logicEntities.body.Activities 中配置了 isSupportDraggingToFreeform为true的Activity 才支持拖出到悬浮窗\noff: 关闭应用的拖出到悬浮窗功能",
+                                        "description": "是否支持应用内 Activity 拖出到悬浮窗。\napp：应用内所有 Activity 均支持拖出到悬浮窗\nwindow：只有在 logicEntities.body.Activities 中配置了 isSupportDraggingToFreeform 为 true 的 Activity 才支持拖出到悬浮窗\noff: 关闭应用的拖出到悬浮窗功能",
                                         "enum": [
                                             "app",
                                             "window",
