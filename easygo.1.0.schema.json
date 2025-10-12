@@ -84,8 +84,8 @@
                             },
                             "defaultDualActivities": {
                                 "description": "应用冷启动默认打开首页双屏配置",
-                                "type": "array",
-                                "items": {
+                                "type": "object",
+                                "properties": {
                                     "mainPages": {
                                         "description": "主页面 Activity，可以有多个，分号隔开\n展开态时冷启动应用打开此页面时，系统在右屏自动启动 relatedPage 页面",
                                         "type": "string"
@@ -99,12 +99,10 @@
                                     "mainPages"
                                 ],
                                 "examples": [
-                                    [
-                                        {
-                                            "mainPages": "com.xxx.MainActivity",
-                                            "relatedPage": "com.xxx.EmptyActivity"
-                                        }
-                                    ]
+                                    {
+                                        "mainPages": "com.xxx.MainActivity",
+                                        "relatedPage": "com.xxx.EmptyActivity"
+                                    }
                                 ]
                             },
                             "transActivities": {
