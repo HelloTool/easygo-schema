@@ -1,4 +1,4 @@
-# Huawei EasyGo Schema
+# HUAWEI EasyGo Schema
 
 [中文](README.zh.md) |
 **English** |
@@ -6,9 +6,9 @@
 
 EasyGo is a feature that displays two Activities from the same app side by side.
 
-For more information about EasyGo, please refer to Huawei’s [official introduction][huawei easygo introduction].
+For more information about EasyGo, please refer to HUAWEI’s [official introduction][huawei easygo introduction].
 
-This JSON Schema is an unofficial data structure definition for `easygo.json`, based on Huawei’s [configuration guide][huawei easygo config introduction].
+This JSON Schema is an unofficial data structure definition for `easygo.json`, based on HUAWEI’s [configuration guide][huawei easygo config introduction].
 
 ## Usage Guide
 
@@ -45,11 +45,11 @@ Example:
 
 ## Related Documentation
 
-- Huawei  
+- HUAWEI
   - [Business Introduction][huawei easygo introduction]  
   - [Configuration Guide][huawei easygo config introduction]  
 - ~~Xiaomi~~ (Original documentation has been removed; Wayback Machine unavailable—contributions welcome!)  
-- OPPO  
+- OPPO
   - [OPPO EasyGo Implementation Guide][oppo easygo guide]
 
 ## License
