@@ -1,22 +1,22 @@
-# 华为平行视界（EasyGo） Schema
+# Huawei EasyGo Schema
 
-**中文** |
-[English](README.md) |
-<small>期待您的翻译！</small>
+[中文](README.zh.md) |
+**English** |
+<small>Your translation contribution is welcome!</small>
 
-平行视界是一个将应用内两个 Activity 并排显示的功能。
+EasyGo is a feature that displays two Activities from the same app side by side.
 
-有关 EasyGo 的更多信息，请见华为的[业务介绍][HuaweiEasyGoIntroduction]。
+For more information about EasyGo, please refer to Huawei’s [official introduction][huawei easygo introduction].
 
-本 JSON Schema 是 `easygo.json` 的非官方数据结构定义，规范来自华为的[配置指南][HuaweiEasyGoConfigIntroduction]。
+This JSON Schema is an unofficial data structure definition for `easygo.json`, based on Huawei’s [configuration guide][huawei easygo config introduction].
 
-## 使用指南
+## Usage Guide
 
-### 纯 JSON
+### Plain JSON
 
-在您的 `easygo.json` 文件中添加 `$schema`，值为 `https://hellotool.github.io/easygo-schema/easygo.1.0.schema.json`。
+Add the `$schema` property to your `easygo.json` file with the value `https://hellotool.github.io/easygo-schema/easygo.1.0.schema.json`.
 
-例如：
+Example:
 
 ```json
 {
@@ -36,26 +36,26 @@
                         "from": "io.gitee.jesse205.example.MainActivity",
                         "to": "*"
                     }
-                ],
+                ]
             }
         }
     ]
 }
 ```
 
-## 相关文档
+## Related Documentation
 
-- 华为
-  - [业务介绍][HuaweiEasyGoIntroduction]
-  - [配置指南][HuaweiEasyGoConfigIntroduction]
-- ~~小米~~（原文档已被删除，时光机打不开文档，欢迎贡献）
-- Oppo
-  - [OPPO自研平行视窗适配说明][OppoEasyGoGuide]
+- Huawei  
+  - [Business Introduction][huawei easygo introduction]  
+  - [Configuration Guide][huawei easygo config introduction]  
+- ~~Xiaomi~~ (Original documentation has been removed; Wayback Machine unavailable—contributions welcome!)  
+- OPPO  
+  - [OPPO EasyGo Implementation Guide][oppo easygo guide]
 
-## 许可证
+## License
 
-本项目以 [MIT 许可证](LICENSE) 开源。
+This project is open-sourced under the [MIT License](LICENSE).
 
-[HuaweiEasyGoIntroduction]: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/introduction-0000001051507626
-[HuaweiEasyGoConfigIntroduction]: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/config-introduction-0000001054270212
-[OppoEasyGoGuide]: https://open.oppomobile.com/documentation/page/info?id=11127
+[huawei easygo introduction]: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/introduction-0000001051507626
+[huawei easygo config introduction]: https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/config-introduction-0000001054270212
+[oppo easygo guide]: https://open.oppomobile.com/documentation/page/info?id=11127
