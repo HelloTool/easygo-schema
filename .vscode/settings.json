@@ -1,0 +1,10 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "/example.json"
+            ],
+            "url": "/dist/easygo.1.0.schema.json"
+        }
+    ]
+}

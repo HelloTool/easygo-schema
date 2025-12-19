@@ -36,7 +36,7 @@
                         "from": "io.gitee.jesse205.example.MainActivity",
                         "to": "*"
                     }
-                ],
+                ]
             }
         }
     ]
